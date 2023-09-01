@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('anket', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->text('sorular');
+
         });
     }
 
