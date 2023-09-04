@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\AnketList;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('anketler', function () {
-    return view('anketler');
-});
+Route::get('/anketler', AnketList::class);
+
+//  Route::get('/fruits', 'App\Http\Controllers\FruitController@index');
+
+
