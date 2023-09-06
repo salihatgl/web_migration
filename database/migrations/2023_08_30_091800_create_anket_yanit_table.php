@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('anket_yanit', function (Blueprint $table) {
             $table->id();
             $table->text('yanit');
+            $table->text('yanit_tarayici');
+            $table->text('yanit_isletim_sis');
             $table->timestamps();
            
 

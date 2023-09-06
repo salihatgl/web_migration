@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('anket_secenek', function (Blueprint $table) {
             $table->id();
             $table->text('secenekler');
+            $table->text('secenekler_tarayici');
+            $table->text('secenekler_isletim_sis');
             $table->timestamps();
         });
     }
