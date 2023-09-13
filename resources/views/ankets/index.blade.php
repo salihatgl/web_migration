@@ -1,7 +1,7 @@
-  <!DOCTYPE html>
+
 <html>
 <head>
-     Diğer head içeriği 
+     
     @livewireStyles
 </head>
 <body>

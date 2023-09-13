@@ -11,6 +11,6 @@ class AnketSecenekController extends Controller
     public function index()
     {
         $anketSecenekler = AnketSecenek::all(); // Tüm anketleri al
-        // return view('livewire.anket-list', ['anketler' => $anketSecenekler]);
+         return view('livewire.anket-list', ['anketsecenek' => $anketSecenekler]);
     }
 }

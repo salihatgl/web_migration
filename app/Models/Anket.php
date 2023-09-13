@@ -13,4 +13,5 @@ class Anket extends Model
 
       // İzin verilen sütunlar
       protected $fillable = ['id', 'sorular', 'timestamps'];
+      
 }

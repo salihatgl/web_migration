@@ -12,6 +12,6 @@ class AnketController extends Controller
     {
         $anketler = Anket::all(); // Tüm anketleri al
 
-        // return view('livewire.anket-list', ['anketler' => $anketler]);
+         return view('livewire.anket-list', ['anketler' => $anketler]);
     }
 }

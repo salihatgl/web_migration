@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('anket', function (Blueprint $table) {
             $table->id();
-            $table->text('sorular');
+            $table->text('soru');
             $table->timestamps();
            
         });

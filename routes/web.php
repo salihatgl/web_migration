@@ -19,6 +19,5 @@ Route::get('/', function () {
 });
 Route::get('/anketler', AnketList::class);
 
-//  Route::get('/fruits', 'App\Http\Controllers\FruitController@index');
 
-
+// yanit gonder rotasi

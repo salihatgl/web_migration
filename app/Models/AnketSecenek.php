@@ -12,5 +12,8 @@ class AnketSecenek extends Model
        protected $table = 'anket_secenek';
 
        // İzin verilen sütunlar
-       protected $fillable = ['id', 'secenekler',  'secenekler_taryici', 'secenekler_isletim_sis_','timestamps'];
+       protected $fillable = ['id', 'secenek','anket_id','timestamps'];
+       
+
+     
 }

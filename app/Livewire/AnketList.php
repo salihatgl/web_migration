@@ -4,17 +4,18 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Anket;
-use App\Models\Post;
 use App\Models\AnketSecenek;
+use App\Models\AnketYanit;
 use PhpParser\Node\Stmt\If_;
 
 class AnketList extends Component
 {
     public $anketler; // $anketler değişkenini tanımladık
-    public $anketsecenek; // $aanketsecenek değişkenini tanımladık
-    public $yanit;
-    public $yanit_tarayici;
+    public $anketsecenek; // $anketsecenek değişkenini tanımladık
+    public $anket_id;
+    public $secenek_id;
     public $yanit_isletim_sis;
+    public $selectedPost;
 
 
 
@@ -23,17 +24,19 @@ class AnketList extends Component
     {
         $this->anketler = Anket::all(); // Verileri $anketler'e atadık
         $this->anketsecenek = AnketSecenek::all(); // Verileri $anketsecenek'e atadık
-        $secenekler = AnketSecenek::all(['id']); // Sadece id ve secenek sütunlarını al
+        
 
 
-        return view('livewire.anket-list',compact('secenekler'));
+        return view('livewire.anket-list');
     }
+    
     public function yanitEkle()
     {
-        Post::create([
-            'yanit' => $this->yanit,
-            'yanit_tarayici' => $this->yanit_tarayici,
-            'yanit_isletim_sis' => $this->yanit_isletim_sis,
+       
+        AnketYanit::create([
+            'anket_id' => $this->anket_id,
+            'secenek_id' => $this->secenek_id,
+          
             // Diğer sütunları burada ekleyebilirsiniz
             
         ]);
