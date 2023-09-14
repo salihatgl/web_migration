@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
            
             $table->foreign('anket_id')->references('id')->on('anket');
-            $table->foreign('secenek_id')->references('secenek_id')->on('anket_secenek');
+            $table->foreign('secenek_id')->references('id')->on('anket_secenek');
             
 
         });
