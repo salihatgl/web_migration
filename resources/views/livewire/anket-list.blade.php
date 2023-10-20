@@ -10,9 +10,6 @@
  </head>
 
  <div>
-   
-        
-    
      <form style="margin-left:35%; margin-top: 5%;" wire:submit="yanitEkle">
          <div style="background-color:#f2f2f2; display:inline-block;" class="p-3">
              <h3 class="text-center">ANKET</h3>

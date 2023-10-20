@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('anket_yanit', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('kullanici_id');
             $table->unsignedBigInteger('anket_id');
             $table->unsignedBigInteger('secenek_id');
             $table->timestamps();
            
             $table->foreign('anket_id')->references('id')->on('anket');
             $table->foreign('secenek_id')->references('id')->on('anket_secenek');
+            $table->foreign('kullanici_id')->references('id')->on('users');
             
 
         });

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\AnketYanit;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\AnktYanit;
 
 class AnketYanitController extends Controller
 {

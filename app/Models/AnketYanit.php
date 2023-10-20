@@ -12,5 +12,5 @@ class AnketYanit extends Model
     protected $table = 'anket_yanit';
 
     // İzin verilen sütunlar
-    protected $fillable = ['id', 'anket_id', 'secenek_id','timestamps'];
+    protected $fillable = ['id','kullanici_id','anket_id', 'secenek_id','timestamps'];
 }
