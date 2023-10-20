@@ -25,8 +25,11 @@
         </div>
     </div>
     @if (session('Mesaj'))
-    <div class="bg-green-500 p-4 rounded-lg shadow-md text-white">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-green-500 p-6 rounded-lg shadow-md text-white">
         {{ session('Mesaj') }}
     </div>
+</div>
+    
 @endif
 </x-app-layout>

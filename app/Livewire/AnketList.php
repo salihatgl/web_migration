@@ -30,7 +30,7 @@ class AnketList extends Component
         $this->user = Auth::user();
         $this->anketler = Anket::all(); // Verileri $anketler'e atadık
         $this->anketsecenek = AnketSecenek::all(); // Verileri $anketsecenek'e atadık
-       
+      
         
 
         return view('livewire.anket-list');
@@ -41,25 +41,37 @@ class AnketList extends Component
     {
         if (Auth::check()) {
             $id = Auth::id();
-       
-
+    
+            // Kullanıcının daha önce ankete katılıp katılmadığını kontrol et
+            $anketYanit = AnketYanit::where('kullanici_id', $id)->first();
+    
+            if ($anketYanit) {
+                // Kullanıcı daha önce ankete katıldıysa teşekkür mesajını hazırla
+                $Mesaj = 'Daha önce ankete katıldınız. Teşekkür ederiz!';
+                session()->flash('Mesaj', $Mesaj);
+                return $this->redirect('/dashboard');
+            }
+        }
+        
+        if (Auth::check()) {
+            $id = Auth::id();
         $yanit = $this->secenek_anket_yanit_1;
         $dizi = explode(';', $yanit);
 
-        $yanit_tarayici = $this->secenek_anket_yanit_2;
-        $dizi_tarayici = explode(';', $yanit_tarayici);
+        $yanit_1 = $this->secenek_anket_yanit_2;
+        $dizi_1 = explode(';', $yanit_1);
 
-        $yanit_isletim = $this->secenek_anket_yanit_3;
-        $dizi_isletim = explode(';', $yanit_isletim);
+        $yanit_2 = $this->secenek_anket_yanit_3;
+        $dizi_2 = explode(';', $yanit_2);
 
         AnketYanit::create([
-            'anket_id' => $dizi_isletim[0],
-            'secenek_id' => $dizi_isletim[1],
+            'anket_id' => $dizi_2[0],
+            'secenek_id' => $dizi_2[1],
             'kullanici_id' => $id,
         ]);
         AnketYanit::create([
-            'anket_id' => $dizi_tarayici[0],
-            'secenek_id' => $dizi_tarayici[1],
+            'anket_id' => $dizi_1[0],
+            'secenek_id' => $dizi_1[1],
             'kullanici_id' => $id,
         ]);
         AnketYanit::create([
@@ -67,7 +79,7 @@ class AnketList extends Component
             'secenek_id' => $dizi[1],
             'kullanici_id' => $id,
         ]);
-        $Mesaj = 'Ankete katıldığınız için teşekkür ederiz!';
+        $Mesaj = 'Anket Kaydedildi katıldığınız için teşekkür ederiz.'; 
         session()->flash('Mesaj', $Mesaj);
         return $this->redirect('/dashboard');
 
